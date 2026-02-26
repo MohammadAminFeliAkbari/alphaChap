@@ -1,0 +1,11 @@
+# Dependency directories
+node_modules/
+
+# Next.js build output
+.next/
+
+# Other
+.env
+.git
+README.md
+Dockerfile

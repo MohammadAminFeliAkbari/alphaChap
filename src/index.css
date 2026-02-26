@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* AlphaChap Brand Colors - Professional Printing Platform */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Deep Professional Blue */
+    --primary: 213 50% 23%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Light Blue Surface */
+    --secondary: 210 30% 95%;
+    --secondary-foreground: 213 50% 23%;
+
+    /* Muted Surfaces */
+    --muted: 210 20% 94%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Cyan Accent */
+    --accent: 187 80% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 187 80% 42%;
+
+    --radius: 0.625rem;
+
+    /* Status Colors */
+    --status-registered: 215 15% 60%;
+    --status-printing: 38 92% 50%;
+    --status-printed: 213 50% 45%;
+    --status-shipped: 142 70% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(213 50% 23%) 0%, hsl(213 50% 35%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(187 80% 42%) 0%, hsl(187 80% 52%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(210 30% 97%) 0%, hsl(210 20% 94%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.08), 0 2px 4px -2px hsl(215 25% 15% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.08), 0 4px 6px -4px hsl(215 25% 15% / 0.04);
+    --shadow-xl: 0 20px 25px -5px hsl(215 25% 15% / 0.1), 0 8px 10px -6px hsl(215 25% 15% / 0.06);
+    --shadow-glow: 0 0 20px hsl(187 80% 42% / 0.25);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 15%;
+    --sidebar-primary: 213 50% 23%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 30% 95%;
+    --sidebar-accent-foreground: 213 50% 23%;
+    --sidebar-border: 214 20% 88%;
+    --sidebar-ring: 187 80% 42%;
+  }
+
+  .dark {
+    --background: 215 30% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 215 25% 14%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 215 25% 14%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 187 70% 50%;
+    --primary-foreground: 215 30% 10%;
+
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 20% 95%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 187 80% 45%;
+    --accent-foreground: 215 30% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 187 80% 45%;
+
+    --sidebar-background: 215 25% 12%;
+    --sidebar-foreground: 210 20% 95%;
+    --sidebar-primary: 187 70% 50%;
+    --sidebar-primary-foreground: 215 30% 10%;
+    --sidebar-accent: 215 25% 18%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 215 20% 22%;
+    --sidebar-ring: 187 80% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    direction: rtl;
+  }
+
+  body {
+    @apply bg-background text-foreground font-vazir antialiased;
+  }
+
+  /* Persian Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-vazir font-bold;
+  }
+}
+
+@layer components {
+  .container-rtl {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50 rounded-xl;
+    box-shadow: var(--shadow-md);
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-sm font-medium;
+  }
+
+  .status-registered {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  .status-printing {
+    background-color: hsl(38 92% 50% / 0.15);
+    color: hsl(38 80% 40%);
+  }
+
+  .status-printed {
+    background-color: hsl(213 50% 45% / 0.15);
+    color: hsl(213 50% 35%);
+  }
+
+  .status-shipped {
+    background-color: hsl(142 70% 45% / 0.15);
+    color: hsl(142 70% 35%);
+  }
+
+  .price-highlight {
+    @apply text-accent font-bold;
+  }
+
+  .input-rtl {
+    @apply text-right;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+}
